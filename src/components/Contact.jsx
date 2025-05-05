@@ -8,8 +8,6 @@ import emailjs from '@emailjs/browser';
 
 
 
-
-
 const contactInfo = [
     {
       icon: <Mail size={20} />,
@@ -29,7 +27,6 @@ const contactInfo = [
       value: 'Remote | Flexible Time Zone'
     }
   ];
-
 
 
   const socialLinks = [
@@ -91,11 +88,14 @@ export default function Contact() {
       e.preventDefault();
       if (!validateForm()) return;
       setIsSubmitting(true);
+      
     
       try {
-        const serviceID = 'service_rr2tt1n';
-        const templateID = 'template_bpo8w0c';
-        const publicKey = '6P7NYaX3oQVM-wEFs'; 
+      
+        const serviceID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+        const templateID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+        const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+       
     
         await emailjs.send(serviceID, templateID, formData, {
           publicKey,
@@ -115,7 +115,9 @@ export default function Contact() {
 
 
     return (
+    
         <section id="contact" className="py-20 bg-white dark:bg-gray-900">
+          
           <div className="container px-4 mx-auto">
             <div className="text-center max-w-3xl mx-auto mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">Get In Touch</h2>
