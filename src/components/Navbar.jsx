@@ -3,9 +3,7 @@
 import React, { useEffect, useState } from 'react'
 import { Menu, X } from 'lucide-react';
 
-
 export default function Navbar() {
-
 
     const [isOpen, setIsOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
