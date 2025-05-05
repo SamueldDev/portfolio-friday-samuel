@@ -3,12 +3,19 @@
 import React, { useState } from 'react'
 import { Mail, MapPin, Phone, Send } from 'lucide-react';
 
+
+import emailjs from '@emailjs/browser';
+
+
+
+
+
 const contactInfo = [
     {
       icon: <Mail size={20} />,
       title: 'Email Me',
       value: 'fridaysamuel508@gmail.com',
-      link: 'mailto:fridaysamuel508@gmail.com.com'
+      link: 'mailto:fridaysamuel508@gmail.com'
     },
     {
       icon: <Phone size={20} />,
@@ -79,21 +86,33 @@ export default function Contact() {
       setErrors((prev) => ({ ...prev, [name]: undefined }));
     };
   
+
     const handleSubmit = async (e) => {
       e.preventDefault();
       if (!validateForm()) return;
       setIsSubmitting(true);
+    
       try {
-        await new Promise((res) => setTimeout(res, 1500));
+        const serviceID = 'service_rr2tt1n';
+        const templateID = 'template_bpo8w0c';
+        const publicKey = '6P7NYaX3oQVM-wEFs'; 
+    
+        await emailjs.send(serviceID, templateID, formData, {
+          publicKey,
+        });
+    
         setSubmitSuccess(true);
         setFormData({ name: '', email: '', subject: '', message: '' });
+    
         setTimeout(() => setSubmitSuccess(false), 5000);
-      } catch (error) {
-        console.error(error);
+      } catch  {
+        alert("Something went wrong. Please try again later")
       } finally {
         setIsSubmitting(false);
       }
     };
+    
+
 
     return (
         <section id="contact" className="py-20 bg-white dark:bg-gray-900">

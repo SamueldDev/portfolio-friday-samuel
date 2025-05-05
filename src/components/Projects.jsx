@@ -1,33 +1,20 @@
 
-
 import React, { useState } from 'react'
 import ProjectCard from './ProjectCard';
 import { projectsData } from '../data/project';
 
 
+
 export default function Projects() {
     const [activeCategory, setActiveCategory] = useState('all');
-    const [selectedProject, setSelectedProject] = useState(null);
-    const [isModalOpen, setIsModalOpen] = useState(false);
-  
-    const categories = ['all', 'web', 'app', 'design', 'branding'];
+    const categories = ['all', 'app', 'design', 'branding'];
   
     const filteredProjects =
       activeCategory === 'all'
         ? projectsData
         : projectsData.filter((project) => project.category === activeCategory);
   
-    const openProjectModal = (project) => {
-      setSelectedProject(project);
-      setIsModalOpen(true);
-    };
-  
-    const closeProjectModal = () => {
-      setIsModalOpen(false);
-    };
-  
-
-
+   
     return (
         <section id="projects" className="py-20 bg-white dark:bg-gray-900">
           <div className="container px-4 mx-auto">
@@ -62,22 +49,19 @@ export default function Projects() {
                 <ProjectCard
                   key={project.id}
                   project={project}
-                  onClick={() => openProjectModal(project)}
+               
                 />
               ))}
             </div>
           </div>
     
-          {selectedProject && (
-            <ProjectModal
-              project={selectedProject}
-              isOpen={isModalOpen}
-              onClose={closeProjectModal}
-            />
-          )}
+
         </section>
       );
 
 
   
 }
+
+
+
