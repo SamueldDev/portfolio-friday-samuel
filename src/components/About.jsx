@@ -2,6 +2,7 @@
 
 import React from 'react'
 import me from "../assets/me.png"
+import resume from "../assets/resume-sam.pdf"
 
 export default function About() {
     return (
@@ -32,15 +33,9 @@ export default function About() {
               </div>
     
               <div className="w-full md:w-3/5">
-                {/* <h3 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">
-                  Passionate Web Developer & UI/UX Enthusiast
-                </h3> */}
 
                 <h3 className="text-2xl font-bold mb-2">Turning Ideas into Beautiful, Usable Websites</h3>
-                {/* <p className="text-gray-500 mt-2">
-                Frontend developer focused on performance, clean UI, and smooth user experiences.
-                </p> */}
-
+            
 
                 <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
                 👋 Hey, I’m Samuel — a freelance web developer with experience helping brands and startups turn ideas into fast, responsive, and conversion-focused websites.
@@ -85,7 +80,10 @@ export default function About() {
                 </div>
     
                 <a 
-                  href="#" 
+                  href={resume}
+                  download
+                  target='_blank'
+                  rel='noopener noreferrer'
                   className="inline-flex items-center px-6 py-3 text-base font-medium text-white bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 rounded-lg shadow-md hover:shadow-lg transition-all duration-200"
                 >
                   Download Resume

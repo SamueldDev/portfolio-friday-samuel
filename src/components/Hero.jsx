@@ -43,7 +43,7 @@ export default function Hero() {
                   className="px-8 py-4 text-lg font-medium text-blue-600 dark:text-blue-400 border-2 border-blue-600 dark:border-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/30 rounded-lg transition-all duration-200"
                   onClick={(e) => {
                     e.preventDefault();
-                    document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' });
+                    document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' });  
                   }}
                 >
                   View my work
